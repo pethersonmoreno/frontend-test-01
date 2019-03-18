@@ -1,0 +1,96 @@
+/* Vector */
+.containerSplash {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: #1d1a1a;
+}
+.splash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.containerSymbol {
+  position: relative;
+  width: 40px;
+  margin-top: -50%;
+  margin-left: -50%;
+}
+@media only screen and (min-width: 1024px) {
+  .containerSymbol {
+    width: 80px;
+  }
+}
+.symbol {
+  padding-top: 182%;
+}
+.part1 {
+  width: 22.45%;
+  height: 52.3%;
+  position: absolute;
+  left: 0%;
+  right: 78.16%;
+  top: 8.38%;
+  bottom: 40.95%;
+}
+
+.part2 {
+  width: 28.06%;
+  height: 32.3%;
+  position: absolute;
+  left: 0.17%;
+  right: 72.67%;
+  top: 53.1%;
+  bottom: 16.19%;
+}
+.part3 {
+  width: 22.45%;
+  height: 100%;
+  position: absolute;
+  left: 37.88%;
+  right: 41.46%;
+  top: 0%;
+  bottom: 0%;
+}
+
+.part4 {
+  width: 30.87%;
+  height: 80%;
+  position: absolute;
+  left: 70.58%;
+  right: -0.04%;
+  top: 8.14%;
+  bottom: 13.83%;
+}
+.step1 .part1,
+.step1 .part2,
+.step1 .part3,
+.step1 .part4 {
+  fill: #4c4c4c;
+}
+.step2 .part1,
+.step2 .part2 {
+  fill: #ff3509;
+}
+.step2 .part3,
+.step2 .part4 {
+  fill: #4c4c4c;
+}
+
+.step3 .part1,
+.step3 .part2,
+.step3 .part3 {
+  fill: #ff3509;
+}
+.step3 .part4 {
+  fill: #4c4c4c;
+}
+
+.step4 .part1,
+.step4 .part2,
+.step4 .part3,
+.step4 .part4 {
+  fill: #ff3509;
+}
