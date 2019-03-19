@@ -1,17 +1,14 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import TextFieldCustom from "../../components/material-ui/TextFieldCustom";
-import ButtonCustom from "../../components/material-ui/ButtonCustom";
-import bgImage from "../../assets/background.png";
+import { Link } from "react-router-dom";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 import logoDark from "../../assets/logo_dark.png";
 
 const styles = () => ({
   login: {
     width: "100%",
     height: "100%",
-    backgroundImage: `url(${bgImage})`,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center center",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -46,17 +43,18 @@ const Login = ({ classes }) => (
       </div>
       <form>
         <div className={classes.container}>
-          <TextFieldCustom
+          <TextField
             required
             name="email"
             label="E-mail"
             className={classes.textField}
             margin="normal"
             fullWidth
+            defaultValue="email@login.com"
           />
         </div>
         <div className={classes.container}>
-          <TextFieldCustom
+          <TextField
             required
             name="password"
             label="Password"
@@ -68,9 +66,14 @@ const Login = ({ classes }) => (
           />
         </div>
         <div className={classes.containerButton}>
-          <ButtonCustom variant="outlined" margin="normal">
+          <Button
+            variant="outlined"
+            margin="normal"
+            component={Link}
+            to="/app/trailers"
+          >
             Login
-          </ButtonCustom>
+          </Button>
         </div>
       </form>
     </div>
