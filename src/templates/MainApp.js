@@ -4,16 +4,19 @@ import bgImage from "../assets/background.png";
 
 const styles = () => ({
     root: {
+        display: "flex",
+        flexDirection: "unset",
         width: "100%",
-        height: "100%",
+        minHeight: "100%",
         background:
             "radial-gradient(ellipse at center, rgba(0,0,0,0.83) 50%, rgba(0,0,0,1) 100%)",
+        backgroundAttachment: "fixed",
         "& .bgImage": {
             width: "100%",
-            height: "100%",
             backgroundImage: `url(${bgImage})`,
             backgroundRepeat: "no-repeat",
-            backgroundPosition: "center center"
+            backgroundPosition: "center center",
+            backgroundAttachment: "fixed"
         }
     }
 });
