@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import TrailerItem from "./TrailerItem";
 import Button from "@material-ui/core/Button";
+import Loader from "../../components/Loader";
 
 const getPlaylist = ({ playlistId, key, maxResults }) =>
     fetch(
@@ -70,7 +71,7 @@ class Trailers extends Component {
         loading: false
     };
     componentDidMount() {
-        this.loadItems(4).then(() => setTimeout(this.updateSize, 100));
+        this.loadItems(3).then(() => setTimeout(this.updateSize, 100));
         window.addEventListener("resize", this.startUpdateSize);
     }
     componentWillUnmount() {
@@ -100,7 +101,7 @@ class Trailers extends Component {
     };
     loadItems = maxResults => {
         this.setState({ loading: true });
-        getPlaylist({
+        return getPlaylist({
             playlistId,
             key: process.env.REACT_APP_YOUTUBE_KEY,
             maxResults
@@ -110,7 +111,8 @@ class Trailers extends Component {
             .finally(() => this.setState({ loading: false }));
     };
     loadMore = () => {
-        this.setState({ showLoadMore: false }).then(() => this.loadItems(50));
+        this.setState({ showLoadMore: false });
+        this.loadItems(50);
     };
     getLinesOfItems = () => {
         const { items } = this.state;
@@ -133,7 +135,7 @@ class Trailers extends Component {
 
     render() {
         const { classes } = this.props;
-        const { thumb, showLoadMore } = this.state;
+        const { loading, thumb, showLoadMore } = this.state;
         const linesOfItems = this.getLinesOfItems();
         const linesFullOfItems = linesOfItems.filter(
             line => line.items.length >= qtdByLine
@@ -177,7 +179,8 @@ class Trailers extends Component {
                         ))}
                         {arrEmptySpacesLastLine.map((el, i) => (
                             <div key={i} className="item">
-                                {showLoadMore && i === 0 && (
+                                <Loader loading={loading} />
+                                {!loading && showLoadMore && i === 0 && (
                                     <Button
                                         variant="outlined"
                                         margin="normal"
@@ -194,7 +197,8 @@ class Trailers extends Component {
                     <div className="line">
                         {arrEmptySpacesLastLine.map((el, i) => (
                             <div key={i} className="item">
-                                {showLoadMore && i === 0 && (
+                                <Loader loading={loading} />
+                                {!loading && showLoadMore && i === 0 && (
                                     <Button
                                         variant="outlined"
                                         margin="normal"
