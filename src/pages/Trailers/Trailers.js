@@ -179,8 +179,8 @@ class Trailers extends Component {
                         ))}
                         {arrEmptySpacesLastLine.map((el, i) => (
                             <div key={i} className="item">
-                                <Loader loading={loading} />
-                                {!loading && showLoadMore && i === 0 && (
+                                {i === 0 && <Loader loading={loading} />}
+                                {i === 0 && !loading && showLoadMore && (
                                     <Button
                                         variant="outlined"
                                         margin="normal"
@@ -197,8 +197,8 @@ class Trailers extends Component {
                     <div className="line">
                         {arrEmptySpacesLastLine.map((el, i) => (
                             <div key={i} className="item">
-                                <Loader loading={loading} />
-                                {!loading && showLoadMore && i === 0 && (
+                                {i === 0 && <Loader loading={loading} />}
+                                {i === 0 && !loading && showLoadMore && (
                                     <Button
                                         variant="outlined"
                                         margin="normal"
