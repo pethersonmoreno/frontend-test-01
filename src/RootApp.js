@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Splash from "./components/Splash/Splash";
 import Login from "./pages/Login";
@@ -9,6 +9,9 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider } from "@material-ui/core";
 import MainApp from "./templates/MainApp";
 import theme from "./theme";
+
+const isDeploy = true;
+const Router = isDeploy ? HashRouter : BrowserRouter;
 
 const AppRoute = () => (
     <App>
