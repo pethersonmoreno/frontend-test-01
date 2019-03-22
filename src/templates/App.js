@@ -4,20 +4,12 @@ import Menu from "../components/Menu";
 
 const styles = () => ({
     app: {
-        width: "100%",
+        minWidth: 600,
         height: "100%",
-        "& .header": {
-            width: 300,
-            "& img": {
-                width: "100%"
-            }
-        },
-        "& > .menu": {
-            float: "left",
-            width: 423
-        },
+        display: "flex",
+        "& > .menu": {},
         "& > .content": {
-            marginLeft: 423,
+            flex: "1 auto",
             background:
                 "linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 98.3%)"
         }

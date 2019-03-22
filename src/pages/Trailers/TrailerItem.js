@@ -17,8 +17,14 @@ const styles = theme => ({
             left: 2,
             right: 2,
             height: "21.15%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             "& > p": {
-                padding: 15,
+                maxHeight: "100%",
+                overflow: "hidden",
+                margin: 0,
+                padding: "2%",
                 fontFamily: "Roboto-Condensed",
                 fontSize: 14,
                 textAlign: "center",
@@ -45,18 +51,24 @@ const styles = theme => ({
     },
     focusVisible: {}
 });
-const TrailerItem = ({ classes, className, thumb, item }) => (
-    <ButtonBase
-        className={`${classes.trailerItem} ${className}`}
-        focusRipple
-        focusVisibleClassName="focusVisible"
-    >
-        <img src={item.snippet.thumbnails[thumb].url} alt="Youtube Thumbnail" />
-        <div className="title">
-            <p>{item.snippet.title}</p>
-        </div>
-        <div className="hoverFocus" />
-    </ButtonBase>
+const TrailerItem = ({ classes, className, thumb, item, onClick }) => (
+    <div className={className}>
+        <ButtonBase
+            className={`${classes.trailerItem}`}
+            focusRipple
+            focusVisibleClassName="focusVisible"
+            onClick={onClick}
+        >
+            <img
+                src={item.snippet.thumbnails[thumb].url}
+                alt="Youtube Thumbnail"
+            />
+            <div className="title">
+                <p>{item.snippet.title}</p>
+            </div>
+            <div className="hoverFocus" />
+        </ButtonBase>
+    </div>
 );
 
 export default withStyles(styles)(TrailerItem);

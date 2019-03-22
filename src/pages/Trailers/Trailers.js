@@ -3,6 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import TrailerItem from "./TrailerItem";
 import Button from "@material-ui/core/Button";
 import Loader from "../../components/Loader";
+import VideoTrailer from "./VideoTrailer";
 
 const getPlaylist = ({ playlistId, key, maxResults }) =>
     fetch(
@@ -41,23 +42,26 @@ const thumbTypes = [
 
 const marginBetween = 45;
 const externalMargin = 120;
-const qtdByLine = 2;
 const styles = () => ({
     container: {
-        marginLeft: externalMargin / 2,
-        marginRight: externalMargin / 2,
+        marginLeft: "6.68%",
+        marginRight: "6.68%",
         "& > .line": {
+            minWidth: 300,
             display: "flex",
+            margin: marginBetween / 2,
             "& > .item": {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 flex: "1",
-                margin: marginBetween / 2,
-                "& > button": {
-                    width: 254,
+                padding: marginBetween / 2,
+                "& > button.loadMore": {
                     maxWidth: "100%",
-                    margin: "30px auto"
+                    margin: "30px auto",
+                    "& > span": {
+                        padding: "0 30px"
+                    }
                 }
             }
         }
@@ -68,10 +72,12 @@ class Trailers extends Component {
         thumb: "default",
         items: [],
         showLoadMore: true,
-        loading: false
+        loading: false,
+        trailerOpen: null,
+        qtdByLine: 2
     };
     componentDidMount() {
-        this.loadItems(3).then(() => setTimeout(this.updateSize, 100));
+        this.loadItems(5).then(() => setTimeout(this.updateSize, 100));
         window.addEventListener("resize", this.startUpdateSize);
     }
     componentWillUnmount() {
@@ -84,9 +90,13 @@ class Trailers extends Component {
         this.timeoutUpdateSize = setTimeout(() => {
             this.updateSize();
             this.timeoutUpdateSize = null;
-        }, 100);
+        }, 10);
     };
     updateSize = () => {
+        let qtdByLine = 2;
+        if (this.container.clientWidth < 550) {
+            qtdByLine = 1;
+        }
         const spaces = (qtdByLine - 1) * marginBetween + externalMargin;
         const widthItem = (this.container.clientWidth - spaces) / qtdByLine;
         const possibleThumbs = thumbTypes.filter(t => t.width >= widthItem);
@@ -96,7 +106,9 @@ class Trailers extends Component {
                 .thumb;
         }
         if (this.state.thumb !== newThumb) {
-            this.setState({ thumb: newThumb });
+            this.setState({ qtdByLine, thumb: newThumb });
+        } else if (this.state.qtdByLine !== qtdByLine) {
+            this.setState({ qtdByLine });
         }
     };
     loadItems = maxResults => {
@@ -115,7 +127,7 @@ class Trailers extends Component {
         this.loadItems(50);
     };
     getLinesOfItems = () => {
-        const { items } = this.state;
+        const { items, qtdByLine } = this.state;
         let index = 0;
         return items.reduce((ret, item) => {
             if (ret.length > index && ret[index].items.length >= qtdByLine) {
@@ -132,10 +144,22 @@ class Trailers extends Component {
             });
         }, []);
     };
+    openTrailer = trailerItem => {
+        this.setState({ trailerOpen: trailerItem });
+    };
+    closeTrailer = () => {
+        this.setState({ trailerOpen: null });
+    };
 
     render() {
         const { classes } = this.props;
-        const { loading, thumb, showLoadMore } = this.state;
+        const {
+            loading,
+            qtdByLine,
+            thumb,
+            showLoadMore,
+            trailerOpen
+        } = this.state;
         const linesOfItems = this.getLinesOfItems();
         const linesFullOfItems = linesOfItems.filter(
             line => line.items.length >= qtdByLine
@@ -149,7 +173,6 @@ class Trailers extends Component {
                     (lineNotFullOfItems ? lineNotFullOfItems.items.length : 0)
             )
         ];
-        console.log(linesOfItems);
         return (
             <div
                 className={classes.container}
@@ -163,6 +186,7 @@ class Trailers extends Component {
                                 className="item"
                                 thumb={thumb}
                                 item={item}
+                                onClick={() => this.openTrailer(item)}
                             />
                         ))}
                     </div>
@@ -175,6 +199,7 @@ class Trailers extends Component {
                                 className="item"
                                 thumb={thumb}
                                 item={item}
+                                onClick={() => this.openTrailer(item)}
                             />
                         ))}
                         {arrEmptySpacesLastLine.map((el, i) => (
@@ -182,6 +207,7 @@ class Trailers extends Component {
                                 {i === 0 && <Loader loading={loading} />}
                                 {i === 0 && !loading && showLoadMore && (
                                     <Button
+                                        className="loadMore"
                                         variant="outlined"
                                         margin="normal"
                                         onClick={this.loadMore}
@@ -200,6 +226,7 @@ class Trailers extends Component {
                                 {i === 0 && <Loader loading={loading} />}
                                 {i === 0 && !loading && showLoadMore && (
                                     <Button
+                                        className="loadMore"
                                         variant="outlined"
                                         margin="normal"
                                         onClick={this.loadMore}
@@ -210,6 +237,12 @@ class Trailers extends Component {
                             </div>
                         ))}
                     </div>
+                )}
+                {trailerOpen && (
+                    <VideoTrailer
+                        close={this.closeTrailer}
+                        trailer={trailerOpen}
+                    />
                 )}
             </div>
         );
