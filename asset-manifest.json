@@ -1,0 +1,19 @@
+{
+  "main.css": "/frontend-test-01/static/css/main.bec06242.chunk.css",
+  "main.js": "/frontend-test-01/static/js/main.e33ca687.chunk.js",
+  "main.js.map": "/frontend-test-01/static/js/main.e33ca687.chunk.js.map",
+  "runtime~main.js": "/frontend-test-01/static/js/runtime~main.9597a0f8.js",
+  "runtime~main.js.map": "/frontend-test-01/static/js/runtime~main.9597a0f8.js.map",
+  "static/css/2.d24d558e.chunk.css": "/frontend-test-01/static/css/2.d24d558e.chunk.css",
+  "static/js/2.847a9a10.chunk.js": "/frontend-test-01/static/js/2.847a9a10.chunk.js",
+  "static/js/2.847a9a10.chunk.js.map": "/frontend-test-01/static/js/2.847a9a10.chunk.js.map",
+  "index.html": "/frontend-test-01/index.html",
+  "precache-manifest.d6961e71c09068b96c6b9d882c02fb8d.js": "/frontend-test-01/precache-manifest.d6961e71c09068b96c6b9d882c02fb8d.js",
+  "service-worker.js": "/frontend-test-01/service-worker.js",
+  "static/css/2.d24d558e.chunk.css.map": "/frontend-test-01/static/css/2.d24d558e.chunk.css.map",
+  "static/css/main.bec06242.chunk.css.map": "/frontend-test-01/static/css/main.bec06242.chunk.css.map",
+  "static/media/roboto-fontface.css": "/frontend-test-01/static/media/Roboto-ThinItalic.8a96edbb.woff",
+  "static/media/roboto-condensed-fontface.css": "/frontend-test-01/static/media/Roboto-Condensed-RegularItalic.e271a330.woff",
+  "static/media/background.png": "/frontend-test-01/static/media/background.8514356f.png",
+  "static/media/logo_dark.png": "/frontend-test-01/static/media/logo_dark.42dbc4d1.png"
+}
