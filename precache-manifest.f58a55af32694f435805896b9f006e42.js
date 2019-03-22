@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "35b07eb2f8711ae08d1f58c043880930",
-    "url": "/frontend-test-01/static/media/Roboto-Regular.35b07eb2.woff"
+    "revision": "1d6594826615607f6dc860bb49258acb",
+    "url": "/frontend-test-01/static/media/Roboto-Medium.1d659482.woff"
   },
   {
     "revision": "da791decb6b117af81fe",
@@ -84,8 +84,8 @@ self.__precacheManifest = [
     "url": "/frontend-test-01/static/media/Roboto-Light.c73eb1ce.woff"
   },
   {
-    "revision": "1d6594826615607f6dc860bb49258acb",
-    "url": "/frontend-test-01/static/media/Roboto-Medium.1d659482.woff"
+    "revision": "35b07eb2f8711ae08d1f58c043880930",
+    "url": "/frontend-test-01/static/media/Roboto-Regular.35b07eb2.woff"
   },
   {
     "revision": "da791decb6b117af81fe",
@@ -100,12 +100,12 @@ self.__precacheManifest = [
     "url": "/frontend-test-01/static/media/Roboto-Black.313a6563.woff"
   },
   {
-    "revision": "13efe6cbc10b97144a28310ebdeda594",
-    "url": "/frontend-test-01/static/media/Roboto-LightItalic.13efe6cb.woff"
-  },
-  {
     "revision": "8a96edbbcd9a6991d79371aed0b0288e",
     "url": "/frontend-test-01/static/media/Roboto-ThinItalic.8a96edbb.woff"
+  },
+  {
+    "revision": "13efe6cbc10b97144a28310ebdeda594",
+    "url": "/frontend-test-01/static/media/Roboto-LightItalic.13efe6cb.woff"
   },
   {
     "revision": "f5902d5ef961717ed263902fc429e6ae",
@@ -152,12 +152,12 @@ self.__precacheManifest = [
     "url": "/frontend-test-01/static/media/Roboto-Condensed-Regular.1cb153be.woff"
   },
   {
-    "revision": "8aaf660cb3cc3c98e752c5f869a21522",
-    "url": "/frontend-test-01/static/media/Roboto-Condensed-Light.8aaf660c.woff"
-  },
-  {
     "revision": "aef455e3517b09ae3ad3bc139434a53c",
     "url": "/frontend-test-01/static/media/Roboto-Condensed-Bold.aef455e3.woff"
+  },
+  {
+    "revision": "8aaf660cb3cc3c98e752c5f869a21522",
+    "url": "/frontend-test-01/static/media/Roboto-Condensed-Light.8aaf660c.woff"
   },
   {
     "revision": "e271a330fd4cb000a034dd900c1debdf",
@@ -172,7 +172,7 @@ self.__precacheManifest = [
     "url": "/frontend-test-01/static/css/2.d24d558e.chunk.css"
   },
   {
-    "revision": "cbe1232d20351b08bef9e11f5ecb536c",
+    "revision": "ce0d57d68aaabb96cfad09b4d5eb339f",
     "url": "/frontend-test-01/index.html"
   }
 ];
