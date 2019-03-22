@@ -77,6 +77,7 @@ class Trailers extends Component {
         qtdByLine: 2
     };
     componentDidMount() {
+        this.updateSize();
         this.loadItems(5).then(() => setTimeout(this.updateSize, 100));
         window.addEventListener("resize", this.startUpdateSize);
     }

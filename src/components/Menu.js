@@ -4,9 +4,12 @@ import logoDark from "../assets/logo_dark.png";
 import { List, ListItem, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-const styles = () => ({
+const styles = theme => ({
     menu: {
-        width: 423,
+        margin: "0 auto",
+        [theme.breakpoints.up("md")]: {
+            width: 423
+        },
         height: "100%",
         display: "flex",
         justifyContent: "center",
@@ -47,7 +50,7 @@ const styles = () => ({
     }
 });
 
-const Login = ({ classes }) => (
+const Menu = ({ classes }) => (
     <div className={classes.menu}>
         <div>
             <div className="header">
@@ -75,4 +78,4 @@ const Login = ({ classes }) => (
     </div>
 );
 
-export default withStyles(styles)(Login);
+export default withStyles(styles)(Menu);
